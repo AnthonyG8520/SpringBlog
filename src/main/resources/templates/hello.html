@@ -5,7 +5,8 @@
     <title>Title</title>
 </head>
 <body>
-<nav th:replace="nav :: navbar1"></nav>
+<nav th:replace="partials :: navbar1"></nav>
 <h1>Hello, <span th:text="${pathVar}">World</span></h1>
+<div th:replace="partials :: footer"></div>
 </body>
 </html>
