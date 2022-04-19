@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Number rolled: <span th:text="${random}"></span></h1>
+<h1 th:if="${random == guess}">Your guess <span th:text="${guess}"></span> was correct</h1>
+<h1 th:if="${random != guess}">Your guess <span th:text="${guess}"></span> was incorrect</h1>
+</body>
+</html>
