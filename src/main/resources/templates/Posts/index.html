@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1>This page will show all posts</h1>
+<div th:each="post : ${posts}">
+  <h2>Title: <span th:text="${post.getTitle()}"></span></h2>
+  <h4>Body: <span th:text="${post.getBody()}"></span></h4>
+</div>
+</body>
+</html>
