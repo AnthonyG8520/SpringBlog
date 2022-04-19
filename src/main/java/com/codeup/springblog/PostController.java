@@ -13,7 +13,7 @@ import java.util.List;
 public class PostController {
     @GetMapping("/posts")
     public String index(Model model){
-        Post post1 = new Post("helllooo", "im all out of bubblegum");
+        Post post1 = new Post("helllooo", "bubblegum");
         Post post2 = new Post("in the livingroom", "in the kitchen");
         ArrayList <Post> postList = new ArrayList<>();
         postList.add(post1);
