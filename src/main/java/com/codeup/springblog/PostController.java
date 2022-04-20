@@ -1,10 +1,8 @@
 package com.codeup.springblog;
+import org.springframework.http.converter.json.GsonBuilderUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,14 +33,16 @@ public class PostController {
     }
 
     @GetMapping("/posts/create")
-    public String create(){
+    public String create(Model model){
+        Post post = new Post();
+        model.addAttribute("post", post);
         return "posts/create";
     }
 
     @PostMapping("/posts/create")
-    @ResponseBody
-    public String postCreate(){
-        return "A form to create a post will be sent here";
+    public String postCreate(@ModelAttribute Post post){
+        postDao.save(post);
+        return "redirect:/posts";
     }
 
 
