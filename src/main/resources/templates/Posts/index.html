@@ -6,9 +6,11 @@
 </head>
 <body>
 <h1>This page will show all posts</h1>
+<a href="/posts/create">Click here to create a new post</a>
 <div th:each="post : ${posts}">
-  <h2>Title: <span th:text="${post.getTitle()}"></span></h2>
-  <h4>Body: <span th:text="${post.getBody()}"></span></h4>
+  <a th:href="@{posts/{id}(id=${post.id})}">Click to see post</a>
+  <h2>Title: <span th:text="${post.title}"></span></h2>
+  <h4>Body: <span th:text="${post.body}"></span></h4>
 </div>
 </body>
 </html>
