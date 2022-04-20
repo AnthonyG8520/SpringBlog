@@ -11,14 +11,17 @@ import java.util.List;
 
 @Controller
 public class PostController {
+
+    private final PostRepository postDao;
+
+    public PostController(PostRepository postDao){
+        this.postDao = postDao;
+    }
+
+
     @GetMapping("/posts")
     public String index(Model model){
-        Post post1 = new Post("helllooo", "bubblegum");
-        Post post2 = new Post("in the livingroom", "in the kitchen");
-        ArrayList <Post> postList = new ArrayList<>();
-        postList.add(post1);
-        postList.add(post2);
-        model.addAttribute("posts", postList);
+        model.addAttribute("posts", postDao.findAll());
         return "posts/index";
     }
 
@@ -32,12 +35,11 @@ public class PostController {
     }
 
     @GetMapping("/posts/create")
-    @ResponseBody
     public String create(){
-        return "A create form for a blog post will be shown here";
+        return "posts/create";
     }
 
-    @PostMapping("posts/create")
+    @PostMapping("/posts/create")
     @ResponseBody
     public String postCreate(){
         return "A form to create a post will be sent here";
