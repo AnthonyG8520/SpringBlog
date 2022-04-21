@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>this page will be used for editing</h1>
+<form method="post" th:action="@{/posts/edit}" th:object="${post}">
+    <label for="title">Title:</label>
+    <input id="title" th:field="*{title}" type="text">
+    <br>
+    <label for="body">Body:</label>
+    <input id="body" th:field="*{body}" type="text">
+    <br>
+    <button type="submit">Post</button>
+</form>
+</body>
+</html>
