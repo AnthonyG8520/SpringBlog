@@ -8,6 +8,7 @@
 <h1>This page will individual ads</h1>
 <br>
 <!--<div th:each="post : ${post}">-->
+    <h3 th:text="${user.email}"></h3>
     <h3 th:text="${post.id}"></h3>
     <h1>Title: <span th:text="${post.title}"></span></h1>
     <h3>Body: <span th:text="${post.body}"></span></h3>

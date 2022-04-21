@@ -15,8 +15,9 @@ public class Post {
     @Column(nullable = false)
     private String body;
 
-    @OneToOne
-    public User user;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
 
     public Post(){
