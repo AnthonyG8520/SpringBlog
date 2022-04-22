@@ -12,6 +12,7 @@
     <h3 th:text="${post.id}"></h3>
     <h1>Title: <span th:text="${post.title}"></span></h1>
     <h3>Body: <span th:text="${post.body}"></span></h3>
+    <a th:href="@{/posts/{id}/edit(id=${post.id})}">Click here to edit this post.</a>
 <!--</div>-->
 
 </body>

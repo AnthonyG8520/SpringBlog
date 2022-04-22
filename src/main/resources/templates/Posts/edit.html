@@ -7,6 +7,7 @@
 <body>
 <h1>this page will be used for editing</h1>
 <form method="post" th:action="@{/posts/edit}" th:object="${post}">
+    <input type="hidden" th:field="*{id}">
     <label for="title">Title:</label>
     <input id="title" th:field="*{title}" type="text">
     <br>
