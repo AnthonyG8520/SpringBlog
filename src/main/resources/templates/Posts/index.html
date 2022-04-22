@@ -5,6 +5,7 @@
   <title>Title</title>
 </head>
 <body>
+<nav th:replace="partials :: navbar"></nav>
 <h1>This page will show all posts</h1>
 <a href="/posts/create">Click here to create a new post</a>
 <div th:each="post : ${posts}">
