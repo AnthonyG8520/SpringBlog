@@ -1,4 +1,4 @@
-package com.codeup.springblog;
+package com.codeup.springblog.Models;
 
 import javax.persistence.*;
 import java.util.List;
@@ -23,6 +23,13 @@ public class User {
 
     public User(){
 
+    }
+
+    public User(User copy){
+        id = copy.id;
+        email = copy.email;
+        username = copy.username;
+        password =
     }
 
     public User(String username, String email, String password) {
