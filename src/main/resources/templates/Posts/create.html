@@ -3,17 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 </head>
 <body>
+<nav th:replace="partials :: navbar"></nav>
 <h1>Create a post</h1>
 <form th:action="@{/posts/create}" th:object="${post}" method="POST">
-    <label for="title">Title:</label>
+    <label for="title">Title: <span style="color: red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span></label><br>
     <input id="title" th:field="*{title}" type="text">
     <br>
-    <label for="body">Body:</label>
+    <label for="body">Body: <span style="color: red" th:if="${#fields.hasErrors('body')}" th:errors="*{body}"></span></label><br>
     <input id="body" th:field="*{body}" type="text">
     <br>
     <button type="submit">Post</button>
 </form>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 </html>

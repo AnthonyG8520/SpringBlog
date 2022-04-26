@@ -7,7 +7,10 @@ import com.codeup.springblog.Services.EmailService;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @Controller
 public class PostController {
@@ -56,7 +59,12 @@ public class PostController {
     }
 
     @PostMapping("/posts/create")
-    public String postCreate(@ModelAttribute Post post){
+    public String postCreate(@Valid @ModelAttribute Post post, Errors error, Model model){
+        if(error.hasErrors()){
+            model.addAttribute("errors", error);
+            model.addAttribute("post", post);
+            return "posts/create";
+        }
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         post.setUser(user);
         postDao.save(post);

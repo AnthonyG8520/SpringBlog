@@ -1,6 +1,8 @@
 package com.codeup.springblog.Models;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Post {
@@ -10,9 +12,11 @@ public class Post {
     private long id;
 
     @Column(nullable = false)
+    @NotBlank(message="Title cannot be blank")
     private String title;
 
     @Column(nullable = false)
+    @NotBlank(message = "Body cannot be blank")
     private String body;
 
     @ManyToOne
