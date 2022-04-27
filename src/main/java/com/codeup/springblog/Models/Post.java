@@ -16,6 +16,7 @@ public class Post {
     private String title;
 
     @Column(nullable = false)
+    @Size(min = 5, message = "Body must be more than 5 characters")
     @NotBlank(message = "Body cannot be blank")
     private String body;
 
